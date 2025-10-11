@@ -328,37 +328,37 @@ body {
 
 /* Membership Section */
 .membership-section {
-  background-color: #07060F; /* Dark background color */
+  background-color: #07060F;
   padding: 100px 80px;
   text-align: center;
-  color: white; /* White text color */
+  color: white;
 }
 
 .section-title-membership {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 80px;
-  color: white; /* Ensure title is white */
+  color: white;
 }
 
 .benefits-container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Allow benefits to wrap */
-  gap: 50px; /* Space between benefit cards */
-  margin-bottom: 70px; /* Space before the button */
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-bottom: 70px;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .benefit-card {
-  width: 200px; /* Fixed width for each benefit card */
+  width: 200px;
   text-align: center;
 }
 
 .benefit-icon {
-  width: 50px; /* Size of the smile icon */
+  width: 50px;
   height: auto;
   margin-bottom: 20px;
 }
@@ -385,10 +385,100 @@ body {
   font-size: 1.05rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: inline-block;
-  margin-top: 20px; /* Space from benefits */
+  margin-top: 20px;
 }
 
 .btn-membership:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(100, 0, 200, 0.4);
+}
+
+/* FAQ Section */
+.faq-section {
+  background-color: #FFFFFF; /* White background */
+  padding: 100px 80px;
+  text-align: center;
+  color: #07060F; /* Dark text for FAQ */
+}
+
+.faq-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 80px;
+}
+
+.faq-container {
+  display: flex;
+  justify-content: center;
+  gap: 80px; /* Space between columns */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.faq-column {
+  flex: 1; /* Each column takes equal space */
+  max-width: 450px; /* Max width for each column */
+  text-align: left;
+}
+
+.faq-item {
+  margin-bottom: 40px; /* Space between FAQ items */
+}
+
+.faq-item h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #07060F;
+  margin-bottom: 15px;
+}
+
+.faq-item p {
+  font-size: 0.95rem;
+  color: #8C8C8C;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  background-color: #07060F; /* Dark background */
+  padding: 40px 80px;
+  text-align: center;
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 30px auto; /* Center content and add space above copyright */
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.footer-smile-icon {
+  width: 40px; /* Adjust size of smile icon */
+  height: auto;
+  margin-right: 10px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 20px;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #9747FF; /* Hover effect for social icons */
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
 }
