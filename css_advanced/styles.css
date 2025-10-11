@@ -1,0 +1,169 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  background-color: #07060F;
+  overflow-x: hidden;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 80px;
+  z-index: 100;
+}
+
+.header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  height: 30px;
+  width: auto;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  /* Changed min-height to 100vh. This means it will be AT LEAST 100vh, but can grow if content pushes it */
+  min-height: 100vh;
+  /* Removed height: 100vh; to allow it to expand */
+  background: url("images/Object.png") center -40px / cover no-repeat;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  /* Removed justify-content: center to allow content to naturally flow based on padding and margins */
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* Keep overflow hidden for background image */
+  padding-bottom: 50px; /* Add padding to the bottom of the hero to ensure profiles have space */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 50px;
+  padding-top: 100px; /* Still useful to push "Get schooled" down from the header */
+}
+
+.hero-content h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.btn {
+  background: linear-gradient(90deg, #9C3DCC 0%, #6F00CF 100%);
+  color: white;
+  text-decoration: none;
+  padding: 15px 35px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1.05rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(100, 0, 200, 0.4);
+}
+
+.learn-from-pros {
+    position: relative;
+    z-index: 2;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #AB88FF;
+    margin-bottom: 50px; /* Reduced space below "Learn from the pros" to pull profiles up slightly */
+    margin-top: 0; /* Ensures no weird extra space */
+}
+
+/* Profiles */
+.profiles {
+  position: relative; /* Keep relative */
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding: 0 40px;
+  /* Removed margin-top to let content flow naturally */
+  margin-bottom: 20px; /* Add a small margin at the bottom of the profiles section itself */
+}
+
+.profile {
+  text-align: center;
+  flex: 0 0 auto;
+  width: 200px;
+  padding-bottom: 10px; /* Add some padding to the bottom of each profile card to ensure text isn't cut */
+}
+
+.profile img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #6F00CF;
+}
+
+.profile h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.profile p {
+  font-size: 0.9rem;
+  color: #B0B0B0;
+  line-height: 1.4; 
+}
