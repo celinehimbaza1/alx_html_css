@@ -166,7 +166,7 @@ body {
 
 /* Testimonial Section */
 .testimonial-section {
-  background-color: #9747FF; /* The purple background color */
+  background-color: #9747FF;
   padding: 70px 0;
   display: flex;
   justify-content: center;
@@ -177,18 +177,18 @@ body {
 .testimonial-content {
   display: flex;
   align-items: center;
-  max-width: 900px; /* Adjust as needed for content width */
+  max-width: 900px;
   width: 100%;
   padding: 0 20px;
-  gap: 50px; /* Space between image and text */
+  gap: 50px;
 }
 
 .testimonial-img {
-  width: 160px; /* Slightly larger than profile images */
+  width: 160px;
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0; /* Prevent image from shrinking */
+  flex-shrink: 0;
 }
 
 .testimonial-text {
@@ -212,4 +212,116 @@ body {
   font-size: 1rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
+}
+
+/* Tutorials Section */
+.tutorials-section {
+  background-color: #FFFFFF; /* White background */
+  padding: 100px 80px;
+  text-align: center;
+  color: #07060F; /* Dark text color for this section */
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 80px;
+}
+
+.purple-text {
+  color: #9747FF; /* Purple color for "popular" */
+}
+
+.video-cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+  gap: 30px; /* Space between video cards */
+  max-width: 1200px; /* Max width for the container */
+  margin: 0 auto; /* Center the container */
+}
+
+.video-card {
+  width: 250px; /* Fixed width for each card */
+  text-align: left;
+  background-color: #FFFFFF;
+  border-radius: 8px; /* Slightly rounded corners */
+}
+
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 150px; /* Fixed height for thumbnails */
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 15px;
+}
+
+.video-thumbnail img:first-child { /* The main video image */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; /* Size of the play icon */
+  height: 60px;
+}
+
+.video-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 15px 10px 15px;
+  color: #07060F;
+}
+
+.video-description {
+  font-size: 0.9rem;
+  color: #8C8C8C;
+  line-height: 1.5;
+  margin: 0 15px 15px 15px;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  margin: 0 15px 15px 15px;
+}
+
+.author-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.author-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #9747FF; /* Purple color for author name */
+}
+
+.rating-duration {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 15px 0 15px;
+  padding-bottom: 20px;
+}
+
+.rating-stars {
+  width: 80px; /* Adjust size of rating stars image */
+  height: auto;
+}
+
+.duration {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #8C8C8C;
 }
