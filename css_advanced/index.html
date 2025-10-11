@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS Advanced Project</title>
+  <title>SmileSchool</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Header -->
-  <header>
+  <header class="header">
     <nav>
-      <a href="#"><img src="images/logo.png" alt="Logo"></a>
-      <ul>
+        <div><a href="#"><img src="images/logo.png" alt="SmileSchool Logo" class="logo"></a></div>
+      <ul class="nav-links">
         <li><a href="#">Courses</a></li>
         <li><a href="#">Pricing</a></li>
         <li><a href="#">Login</a></li>
@@ -19,17 +20,39 @@
     </nav>
   </header>
 
-  <!-- Main content -->
-  <main>
-    <section>
-      <h1>Welcome to the CSS Advanced Project</h1>
-      <p>This project will help you master CSS by building a full webpage from a Figma design.</p>
-    </section>
-  </main>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Get schooled</h1>
+      <p class="tagline">SMILES • GRIN • LAUGH</p>
+      <a href="#" class="btn">REGISTER FOR FREE</a>
+    </div>
+    <p class="learn-from-pros">Learn from the pros</p>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 ALX Front-End</p>
-  </footer>
+    <!-- Profiles -->
+    <div class="profiles">
+      <div class="profile">
+        <img src="images/1.png" alt="Phillip Massey">
+        <h3>Phillip Massey</h3>
+        <p><em>Smile of the year</em><br>2018 - 2019</p>
+      </div>
+      <div class="profile">
+        <img src="images/3.png" alt="Nannie Lawrence">
+        <h3>Nannie Lawrence</h3>
+        <p><em>Best «little smile»</em><br>2017</p>
+      </div>
+      <div class="profile">
+        <img src="images/1.png" alt="Bruce Walters">
+        <h3>Bruce Walters</h3>
+        <p><em>Best «Friend Smile»<br>live performance 2019</em></p>
+      </div>
+      <div class="profile">
+        <img src="images/4.png" alt="Henry Hughes">
+        <h3>Henry Hughes</h3>
+        <p><em>+24h smiles winner</em><br>2016 - 2019</p>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
