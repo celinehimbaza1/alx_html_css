@@ -216,10 +216,10 @@ body {
 
 /* Tutorials Section */
 .tutorials-section {
-  background-color: #FFFFFF; /* White background */
+  background-color: #FFFFFF;
   padding: 100px 80px;
   text-align: center;
-  color: #07060F; /* Dark text color for this section */
+  color: #07060F;
 }
 
 .section-title {
@@ -229,35 +229,35 @@ body {
 }
 
 .purple-text {
-  color: #9747FF; /* Purple color for "popular" */
+  color: #9747FF;
 }
 
 .video-cards-container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
-  gap: 30px; /* Space between video cards */
-  max-width: 1200px; /* Max width for the container */
-  margin: 0 auto; /* Center the container */
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .video-card {
-  width: 250px; /* Fixed width for each card */
+  width: 250px;
   text-align: left;
   background-color: #FFFFFF;
-  border-radius: 8px; /* Slightly rounded corners */
+  border-radius: 8px;
 }
 
 .video-thumbnail {
   position: relative;
   width: 100%;
-  height: 150px; /* Fixed height for thumbnails */
+  height: 150px;
   overflow: hidden;
   border-radius: 8px 8px 0 0;
   margin-bottom: 15px;
 }
 
-.video-thumbnail img:first-child { /* The main video image */
+.video-thumbnail img:first-child {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -269,7 +269,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60px; /* Size of the play icon */
+  width: 60px;
   height: 60px;
 }
 
@@ -304,7 +304,7 @@ body {
 .author-name {
   font-size: 1rem;
   font-weight: 600;
-  color: #9747FF; /* Purple color for author name */
+  color: #9747FF;
 }
 
 .rating-duration {
@@ -316,7 +316,7 @@ body {
 }
 
 .rating-stars {
-  width: 80px; /* Adjust size of rating stars image */
+  width: 80px;
   height: auto;
 }
 
@@ -324,4 +324,71 @@ body {
   font-size: 0.9rem;
   font-weight: 600;
   color: #8C8C8C;
+}
+
+/* Membership Section */
+.membership-section {
+  background-color: #07060F; /* Dark background color */
+  padding: 100px 80px;
+  text-align: center;
+  color: white; /* White text color */
+}
+
+.section-title-membership {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 80px;
+  color: white; /* Ensure title is white */
+}
+
+.benefits-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow benefits to wrap */
+  gap: 50px; /* Space between benefit cards */
+  margin-bottom: 70px; /* Space before the button */
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefit-card {
+  width: 200px; /* Fixed width for each benefit card */
+  text-align: center;
+}
+
+.benefit-icon {
+  width: 50px; /* Size of the smile icon */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.benefit-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.benefit-card p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.btn-membership {
+  background: linear-gradient(90deg, #9C3DCC 0%, #6F00CF 100%);
+  color: white;
+  text-decoration: none;
+  padding: 15px 35px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1.05rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;
+  margin-top: 20px; /* Space from benefits */
+}
+
+.btn-membership:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(100, 0, 200, 0.4);
 }
