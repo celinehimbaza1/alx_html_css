@@ -1,219 +1,282 @@
-/* 0-styles.css - reset + variables + header/hero */
+/* styles.css - reset + variables + header/hero */
 
-/* Reset / base */
-:root{
-  --max-width: 1000px;
-  --accent: #FF6565;
-  --bg: #0f1720; /* fallback to dark if image missing */
-  --text: #111827;
-  --muted: #6b7280;
-  --white: #ffffff;
-  --container-padding: 20px;
-  --header-height: 72px;
-  --font-stack: "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
-
+/* CSS Reset */
 *,
 *::before,
-*::after {box-sizing: border-box;margin:0;padding:0;}
-
-html,body{
-  height:100%;
-  font-family: var(--font-stack);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.4;
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-a { color: inherit; text-decoration: none; }
-
-.container{
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
+/* Custom Properties (Variables) */
+:root {
+    --max-width: 1000px;
+    --accent: #FF6565;
+    --bg-dark: #071629; /* Dark background color based on Figma for text readability */
+    --text-color-light: #FFFFFF;
+    --font-family-sans: 'Source Sans Pro', sans-serif;
+    --font-family-spin-cycle: 'Spin Cycle OT', sans-serif; /* Placeholder, will need @font-face if local */
+    --container-padding: 20px;
 }
 
-/* Topbar */
-.topbar{
-  background: rgba(255,255,255,0.02);
-  position: relative;
-  z-index: 20;
+/* Base Styles */
+html, body {
+    height: 100%;
+    font-family: var(--font-family-sans);
+    color: var(--text-color-light); /* Default text color for hero is light */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6; /* Adjust line height for better readability */
+    background-color: var(--bg-dark); /* Ensure body has a dark background by default */
 }
 
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  height: var(--header-height);
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-/* Logo (text placeholder) */
-.logo{
-  font-weight:700;
-  letter-spacing: 0.08em;
-  color: var(--white);
-  font-size: 1.05rem;
+ul {
+    list-style: none;
 }
 
-/* Nav */
-.main-nav ul{
-  list-style:none;
-  display:flex;
-  gap: 24px;
-  align-items:center;
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
 }
 
-.main-nav a{
-  color: var(--white);
-  font-weight:600;
-  font-size: 0.95rem;
-  opacity: 0.95;
+/* Header/Hero Section */
+.hero {
+    /* Use a dark background color as a fallback and for areas not covered by the image */
+    background-color: var(--bg-dark);
+    /* Corrected image usage based on your directory and output */
+    background-image: url('images/headphones_hero_1.jpg');
+    background-repeat: no-repeat;
+    background-position: center top; /* Align to top for better visual */
+    background-size: cover; /* Cover the entire area */
+    min-height: 100vh; /* Make hero cover full viewport height */
+    display: flex;
+    flex-direction: column; /* Stack header-container and hero-content vertically */
+    padding-bottom: 80px; /* Space at the bottom of the hero section */
+    position: relative; /* For absolute positioning if needed, and overlay */
 }
 
-.main-nav a:hover,
-.main-nav a:active {
-  color: var(--accent);
+/* Overlay for better text readability if background image is busy */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Cover the entire hero section */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.15)); /* Darker at top, fading down */
+    pointer-events: none; /* Allow interaction with elements below */
+    z-index: 1; /* Place below content, above background */
+}
+
+.hero .header-container,
+.hero .hero-content {
+    position: relative; /* Ensure these are above the overlay */
+    z-index: 2;
+}
+
+
+/* Header Container (Navigation & Logo) */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px; /* Space from top as per common designs */
+    padding-bottom: 60px; /* Space between header nav and hero text */
+}
+
+.logo img {
+    height: 32px; /* Adjust logo height as per Figma */
+    width: auto; /* Maintain aspect ratio */
+}
+
+/* Navigation */
+.main-nav .nav-list {
+    display: flex;
+    gap: 40px; /* Space between nav items as per Figma */
+}
+
+.nav-link {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-color-light);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:active {
+    color: var(--accent); /* Required interaction */
+}
+
+/* Hero Content */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    text-align: center;
+    flex-grow: 1; /* Allows it to take up available vertical space */
+    justify-content: center; /* Vertically center content within its flex space */
+}
+
+.hero-title {
+    font-size: 44px; /* Adjust as per Figma */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    max-width: 700px; /* Limit width of heading */
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    max-width: 650px;
+}
+
+.hero-description {
+    font-size: 16px;
+    font-weight: 300;
+    max-width: 650px;
+    margin-top: 40px;
+    line-height: 2; /* Increased line-height for readability */
 }
 
 /* Buttons */
-.btn{
-  display:inline-block;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-weight:700;
-  text-align:center;
-  cursor:pointer;
-  border: none;
+.btn {
+    display: inline-block;
+    padding: 12px 30px; /* As per Figma button size */
+    border-radius: 22px; /* Rounded corners as per Figma */
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.3s ease; /* For hover effect */
 }
 
-.btn-primary{
-  background: var(--accent);
-  color: var(--white);
+.btn-primary {
+    background: var(--accent);
+    color: var(--text-color-light);
 }
 
 .btn-primary:hover,
-.btn-primary:active{
-  opacity: 0.9; /* required interaction */
+.btn-primary:active {
+    opacity: 0.9; /* Required interaction */
 }
 
-.btn-ghost{
-  background: transparent;
-  color: var(--white);
-  border: 1px solid rgba(255,255,255,0.12);
+
+/* --- Responsive Design for Tablet (e.g., up to 900px, adjust as needed) --- */
+@media (max-width: 900px) {
+    .hero {
+        /* Use headphones_hero_1.jpg for tablet as well, or another specific if available */
+        background-image: url('images/headphones_hero_1.jpg');
+        min-height: 80vh; /* Adjust for tablet */
+        padding-bottom: 60px;
+    }
+    .header-container {
+        padding-top: 30px;
+        padding-bottom: 40px;
+    }
+    .hero-title {
+        font-size: 38px;
+    }
+    .hero-description {
+        margin-top: 30px;
+    }
 }
 
-/* HERO
-   We'll use the desktop screenshot as background for large screens,
-   tablet for medium, and mobile for small screens (<=480px).
+
+/* --- Responsive Design for Mobile (480px or less) --- */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px; /* Reduced padding for mobile */
+    }
+
+    .hero {
+        /* Use headphones_hero_2.jpg for mobile based on typical mobile-specific images */
+        background-image: url('images/headphones_hero_2.jpg'); /* Using headphones_hero_2 for mobile, assuming it's a closer crop or different shot */
+        min-height: 85vh; /* Adjust for mobile */
+        padding-bottom: 40px;
+        background-position: 70% top; /* Adjust background position for better focus on mobile */
+    }
+
+    .header-container {
+        /* On mobile, for now, we'll keep the logo left and nav hidden */
+        justify-content: flex-start; /* Align logo to the start */
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    .main-nav {
+        display: none; /* Hide desktop navigation on mobile (no JS for now) */
+    }
+
+    .logo img {
+        height: 28px; /* Slightly smaller logo on mobile */
+    }
+
+    .hero-content {
+        justify-content: flex-start; /* Start content higher on mobile */
+        padding-top: 20px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        margin-top: 25px;
+        line-height: 1.8;
+    }
+
+    .btn {
+        padding: 10px 25px; /* Slightly smaller button on mobile */
+        font-size: 13px;
+    }
+}
+
+/* Custom font-face for Spin Cycle OT if it's a local font */
+/*
+@font-face {
+    font-family: 'Spin Cycle OT';
+    src: url('fonts/Spin-Cycle-OT.woff2') format('woff2'),
+         url('fonts/Spin-Cycle-OT.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 */
-.hero{
-  /* dark fallback color */
-  background-color: var(--bg);
-  background-image: url('images/01_headphones_desktop@2x.png');
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  color: var(--white);
-  padding: 60px 0 120px;
-}
-
-/* overlay so text is readable */
-.hero::before{
-  content: "";
-  position: absolute;
-  left:0; right:0;
-  top:0;
-  height: 360px;
-  background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.15));
-  pointer-events: none;
-}
-
-.hero-inner{
-  position: relative; /* above overlay */
-  padding-top: 40px;
-  padding-bottom: 40px;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap: 18px;
-}
-
-/* Hero text sizes tuned to feel like the design */
-.hero-title{
-  font-size: 2rem;
-  font-weight:800;
-  line-height:1.05;
-  max-width: 720px;
-  color: var(--white);
-  text-shadow: 0 6px 22px rgba(2,6,23,0.6);
-}
-
-.hero-sub{
-  color: rgba(255,255,255,0.85);
-  max-width: 620px;
-  font-weight: 500;
-}
-
-/* hero actions row */
-.hero-actions{
-  margin-top: 10px;
-  display:flex;
-  gap: 12px;
-}
-
-/* small info block in main */
-.info{
-  padding: 48px 0;
-}
-
-/* footer */
-.site-footer{
-  padding: 28px 0;
-  background: #f8fafc;
-  color: #374151;
-  margin-top: 40px;
-  text-align:center;
-}
 
 /* Accessibility: focus states */
 a:focus, button:focus {
-  outline: 3px solid rgba(255,101,101,0.18);
+  outline: 3px solid rgba(255,101,101,0.5); /* Slightly stronger outline */
   outline-offset: 3px;
   border-radius: 6px;
 }
 
-/* Responsive: tablet, then mobile breakpoint 480px */
-@media (max-width: 900px){
-  .hero-title{ font-size: 1.85rem; }
-  .header-inner{ height: 66px; }
-  .hero{ padding-top: 48px; padding-bottom: 100px; background-image: url('images/01_headphones_tablet@2x.png'); }
+/* General page structure (placeholders) */
+main {
+    background-color: var(--text-color-light); /* Assuming other sections have light background */
+    color: #333; /* Default text color for main content */
+    padding-bottom: 80px; /* General padding */
 }
 
-@media (max-width: 480px){
-  .container{ padding: 0 16px; }
-  .main-nav { display:none; } /* nav replaced by minimal header on small screens */
-  .cta-group { display:none; }
-
-  .header-inner{
-    justify-content:space-between;
-  }
-  .logo{ font-size: 0.95rem; }
-
-  /* Mobile hero screenshot */
-  .hero{
-    background-image: url('images/01_headphones_mobile@2x.png');
-    padding: 32px 0 80px;
-    background-position: top center;
-    background-size: cover;
-  }
-  .hero-inner{
-    align-items:center;
-    text-align:center;
-  }
-  .hero-title{ font-size: 1.25rem; max-width: 300px; }
-  .hero-sub{ max-width: 320px; font-size: 0.95rem; }
-  .hero-actions{ flex-direction: column; width:100%; gap:10px; }
-  .btn{ width: 100%; }
-  .btn-ghost{ border-width:1px; padding: 10px; }
+.site-footer {
+    padding: 40px 0;
+    background-color: var(--bg-dark); /* Dark footer background */
+    color: var(--text-color-light);
+    text-align: center;
+    font-size: 14px;
 }
