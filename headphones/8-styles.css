@@ -1,0 +1,431 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Reusable Section Title */
+.section-title {
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    color: #333;
+}
+
+/* Header/Hero Section */
+.hero-section {
+    background-image: url('./images/headphones_hero_1.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo img {
+    height: 30px;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* Smooth transition for slide-in/out effect */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #FF6565;
+}
+
+/* Hamburger Menu Input (hidden checkbox - no longer strictly needed for toggling but can remain) */
+.menu-toggle {
+    display: none;
+}
+
+/* Hamburger Icon (visible only on small screens) */
+.menu-icon {
+    display: none; /* Hidden by default on large screens */
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    z-index: 101; /* Ensure it's above other content */
+}
+
+.nav-icon,
+.nav-icon::before,
+.nav-icon::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease; /* Smooth animation for icon transformation */
+}
+
+.nav-icon {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-icon::before {
+    top: -8px;
+}
+
+.nav-icon::after {
+    top: 8px;
+}
+
+/* State when menu is open (JavaScript will add 'menu-open' class to body or navbar) */
+body.menu-open .nav-icon {
+    background: transparent; /* Hide middle bar */
+}
+
+body.menu-open .nav-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+body.menu-open .nav-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+
+@media (max-width: 480px) { /* Changed from 768px to 480px as per task requirements */
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: flex; /* Override previous display: none; from old logic */
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9); /* Darker background for menu */
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 0;
+        padding: 20px 0;
+        text-align: center;
+        z-index: 100;
+        /* Start off-screen and invisible */
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none; /* Prevents interaction when hidden */
+    }
+
+    .nav-links li {
+        margin: 15px 0; /* More spacing for mobile links */
+    }
+
+    .nav-links a {
+        font-size: 1.2em; /* Larger font size for mobile */
+    }
+
+    .menu-icon {
+        display: block; /* Show hamburger icon on small screens */
+    }
+
+    /* When JavaScript adds 'menu-open' to body */
+    body.menu-open .nav-links {
+        transform: translateY(0); /* Slide in */
+        opacity: 1; /* Fade in */
+        pointer-events: auto; /* Allow interaction */
+    }
+
+    /* Adjust hero content for smaller screens if needed */
+    .hero-content {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .hero-content h2 {
+        font-size: 1.2em;
+    }
+}
+
+
+/* Hero Content */
+.hero-content {
+    margin-top: 50px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.accent-text {
+    color: #FF6565;
+}
+
+.button {
+    background-color: #FF6565;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* What is it? Section */
+.what-is-it-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.what-is-it-section .section-title {
+    color: #333;
+}
+
+.what-is-it-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.what-is-it-content p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* --- What is it? Section Animations --- */
+.animate-on-hover-fade-scale {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.animate-on-hover-fade-scale:hover {
+    transform: scale(1.02);
+    opacity: 0.8;
+}
+
+
+/* Our Results Section */
+.results-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: #000000;
+    color: white;
+}
+
+.results-section .section-title {
+    color: white;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    align-items: start;
+}
+
+.result-item {
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-number {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: #FF6565;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.result-description {
+    font-size: 1em;
+    color: #ccc;
+    line-height: 1.5;
+    max-width: 200px;
+}
+
+/* --- Our Results Section Animations --- */
+.animate-hover-bounce {
+    transition: transform 0.3s ease;
+}
+
+.animate-hover-bounce:hover {
+    transform: translateY(-10px);
+}
+
+/* Contact Us Section */
+.contact-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.contact-section .section-title {
+    color: #333;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #FF6565;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 101, 101, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact-button {
+    width: auto;
+    display: block;
+    margin: 30px auto 0 auto;
+    padding: 15px 40px;
+}
+
+/* Footer */
+.main-footer {
+    background-color: #000000;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-logo img {
+    height: 30px;
+    filter: brightness(0) invert(1);
+}
+
+.social-icons {
+    display: flex;
+    gap: 25px;
+    margin: 0 auto;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #FF6565;
+}
+
+.copyright {
+    font-size: 0.9em;
+    color: #bbb;
+    margin-left: auto;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin-bottom: 20px;
+    }
+
+    .social-icons {
+        margin-bottom: 20px;
+    }
+
+    .copyright {
+        margin-left: 0;
+        order: 3;
+    }
+}

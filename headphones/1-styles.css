@@ -1,0 +1,454 @@
+/* 1-styles.css - reset + variables + header/hero + what we do */
+
+/* Custom Font-Face for Holberton School Icons */
+/* This assumes your 'fonts' folder is directly in the 'headphones' directory,
+   at the same level as 1-styles.css */
+@font-face {
+  font-family: "holberton_school-icon";
+  src: url("fonts/holberton_school-icon.eot?sq4q9l");
+  src: url("fonts/holberton_school-icon.eot?sq4q9l#iefix") format("embedded-opentype"),
+       url("fonts/holberton_school-icon.ttf?sq4q9l") format("truetype"),
+       url("fonts/holberton_school-icon.woff?sq4q9l") format("woff"),
+       url("fonts/holberton_school-icon.svg?sq4q9l#holberton_school-icon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block; /* Ensures icons are visible during load */
+}
+
+/* Base Styles (from previous task - ensure image paths are updated) */
+/* ... (Existing CSS from 0-styles.css, but with paths like images/filename.jpg) ... */
+/* Your provided 0-styles.css content with corrected image paths: */
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Custom Properties (Variables) */
+:root {
+    --max-width-desktop: 1000px;
+    --accent-color: #FF6565;
+    --bg-dark: #071629;
+    --text-color-light: #FFFFFF;
+    --font-family-sans: 'Source Sans Pro', sans-serif;
+    --container-padding-desktop: 20px;
+    --container-padding-mobile: 16px;
+    --dark-text-color: #333; /* For sections with light backgrounds */
+}
+
+/* Base Styles */
+html, body {
+    height: 100%;
+    font-family: var(--font-family-sans);
+    color: var(--text-color-light); /* Default for hero */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    background-color: var(--bg-dark);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: var(--max-width-desktop);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-desktop);
+}
+
+/* Header/Hero Section */
+.hero {
+    background-color: var(--bg-dark);
+    background-image: url('images/headphones_hero_1.jpg'); /* Updated path */
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Overlay for better text readability */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.15) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero .header-container,
+.hero .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Header Container (Navigation & Logo) */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+/* Mobile Menu Icon Placeholder (Desktop: hidden) */
+.menu-icon-placeholder {
+    display: none;
+}
+
+/* Logo Group (Pentagon Icon + "HEADPHONES" Text) */
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-group .pentagon-icon {
+    height: 32px;
+    width: auto;
+}
+
+.logo-group .logo-text {
+    height: 20px;
+    width: auto;
+}
+
+/* Navigation */
+.main-nav .nav-list {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-link {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-color-light);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:active {
+    color: var(--accent-color);
+}
+
+/* Hero Content */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.hero-title {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    max-width: 700px;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    max-width: 650px;
+}
+
+.hero-description {
+    font-size: 16px;
+    font-weight: 300;
+    max-width: 650px;
+    margin-top: 40px;
+    line-height: 2;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 22px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: var(--text-color-light);
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+    opacity: 0.9;
+}
+
+
+/* --- Media Queries (from previous task) --- */
+
+/* Tablet and Smaller Desktops (e.g., up to 900px) */
+@media (max-width: 900px) {
+    .container {
+        padding: 0 var(--container-padding-desktop);
+    }
+
+    .hero {
+        min-height: 85vh;
+        background-position: center center;
+        padding-bottom: 60px;
+    }
+
+    .header-container {
+        padding-top: 30px;
+        padding-bottom: 40px;
+    }
+
+    .hero-title {
+        font-size: 38px;
+    }
+
+    .hero-description {
+        margin-top: 30px;
+    }
+
+    .main-nav .nav-list {
+        gap: 30px;
+    }
+}
+
+
+/* Mobile (480px or less) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--container-padding-mobile);
+    }
+
+    .hero {
+        background-image: url('images/headphones_hero_2.jpg'); /* Updated path */
+        min-height: 80vh;
+        background-position: 70% top;
+        padding-bottom: 40px;
+    }
+
+    .header-container {
+        padding-top: 20px;
+        padding-bottom: 30px;
+        justify-content: flex-start;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    /* Mobile Hamburger Icon Styling */
+    .menu-icon-placeholder {
+        display: block;
+        width: 25px;
+        height: 2px; /* Middle line */
+        background-color: var(--text-color-light);
+        position: relative;
+        margin: 9px 0;
+        cursor: pointer;
+        flex-shrink: 0;
+        order: -1;
+        margin-right: auto;
+        margin-left: var(--container-padding-mobile);
+    }
+    .menu-icon-placeholder::before,
+    .menu-icon-placeholder::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: var(--text-color-light);
+        left: 0;
+    }
+    .menu-icon-placeholder::before {
+        top: -8px;
+    }
+    .menu-icon-placeholder::after {
+        bottom: -8px;
+    }
+
+    /* Logo Group adjustments for mobile */
+    .logo-group {
+        margin-left: auto;
+        margin-right: var(--container-padding-mobile);
+    }
+
+
+    .hero-content {
+        justify-content: flex-start;
+        padding-top: 20px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        margin-top: 25px;
+        line-height: 1.8;
+    }
+
+    .btn {
+        padding: 10px 25px;
+        font-size: 13px;
+    }
+}
+
+/* Accessibility: focus states */
+a:focus, button:focus {
+  outline: 3px solid rgba(255,101,101,0.5);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+
+/* --- New styles for "What we do..." section --- */
+.what-we-do-section {
+    background-color: var(--text-color-light); /* White background */
+    color: var(--dark-text-color); /* Dark text on white background */
+    padding: 100px 0; /* Top and bottom padding for the section */
+    text-align: center;
+}
+
+.what-we-do-section .section-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.what-we-do-section .section-description {
+    max-width: 650px;
+    margin: 0 auto 80px auto; /* Center text and add space below */
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 2;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for services */
+    gap: 40px 20px; /* Vertical and horizontal gap between items */
+    justify-content: center; /* Center items if they don't fill the row */
+    padding: 0 var(--container-padding-desktop); /* Ensure grid stays within container padding */
+}
+
+.service-item {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Icon styling */
+.service-item .holberton_school-icon {
+    font-family: 'holberton_school-icon' !important; /* Ensure our icon font is used */
+    font-size: 80px; /* Large icon size */
+    color: var(--accent-color); /* Red accent color for icons */
+    line-height: 1; /* Keep icon vertically centered */
+    margin-bottom: 20px;
+    display: block; /* Ensures margin works as expected */
+}
+
+.service-item .service-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.service-item .service-text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+/* --- Responsive adjustments for "What we do..." section --- */
+@media (max-width: 768px) {
+    .what-we-do-section {
+        padding: 80px 0;
+    }
+    .what-we-do-section .section-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    .what-we-do-section .section-description {
+        margin-bottom: 60px;
+        font-size: 15px;
+        padding: 0 var(--container-padding-mobile); /* Adjust padding for description on smaller screens */
+    }
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller min-width for mobile items */
+        gap: 30px 15px;
+    }
+    .service-item .holberton_school-icon {
+        font-size: 70px;
+    }
+    .service-item .service-title {
+        font-size: 16px;
+    }
+    .service-item .service-text {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .what-we-do-section {
+        padding: 60px 0;
+    }
+    .what-we-do-section .section-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    .what-we-do-section .section-description {
+        margin-bottom: 40px;
+        font-size: 14px;
+    }
+    .services-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        padding: 0 var(--container-padding-mobile);
+    }
+    .service-item .holberton_school-icon {
+        font-size: 60px;
+    }
+}
+
+
+/* Footer placeholder (from previous task) */
+.site-footer {
+    padding: 40px 0;
+    background-color: var(--bg-dark);
+    color: var(--text-color-light);
+    text-align: center;
+    font-size: 14px;
+}

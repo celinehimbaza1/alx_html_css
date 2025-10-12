@@ -1,0 +1,203 @@
+/* General Body Styles (might already be in your file) */
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Or your preferred font */
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header/Hero Section (from previous task - example) */
+.hero-section {
+    background-image: url('./images/headphones_hero_1.jpg'); /* Or headphones_hero_2.jpg */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo img {
+    height: 30px; /* Adjust as needed */
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #FF6565; /* Accent color */
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none; /* Hide by default, show on mobile */
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 0;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .menu-toggle:checked + .menu-icon + .nav-links {
+        display: flex;
+    }
+}
+
+.hero-content {
+    margin-top: 50px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.accent-text {
+    color: #FF6565; /* Accent color */
+}
+
+.button {
+    background-color: #FF6565; /* Accent color */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+/* What is it? Section (example) */
+.what-is-it-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.what-is-it-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.what-is-it-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.what-is-it-content p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+
+/* Our Results Section (NEW STYLES) */
+.results-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: #000000; /* Dark background */
+    color: white;
+}
+
+.results-section .section-title {
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    color: white;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 40px;
+    justify-content: center;
+    align-items: start;
+}
+
+.result-item {
+    padding: 20px;
+    background-color: #1a1a1a; /* Slightly lighter dark background for items */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-number {
+    font-size: 3.5em; /* Large number */
+    font-weight: bold;
+    color: #FF6565; /* Accent color */
+    margin-bottom: 10px;
+    line-height: 1; /* Adjust line height for numbers */
+}
+
+.result-description {
+    font-size: 1em;
+    color: #ccc;
+    line-height: 1.5;
+    max-width: 200px; /* Limit width for descriptions */
+}
